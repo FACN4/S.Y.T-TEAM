@@ -6,6 +6,7 @@ CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
   username VARCHAR(255) NOT NULL,
   user_password VARCHAR(255) NOT NULL
+  -- user_avatar
 );
 
 DROP TABLE IF EXISTS likes CASCADE;
