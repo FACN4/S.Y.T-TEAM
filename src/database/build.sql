@@ -4,42 +4,27 @@ DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  -- username VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
   user_password VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS likes CASCADE;
 
 CREATE TABLE likes (
-  post_likes SERIAL PRIMARY KEY,
-  g_each_post_likes INTEGER NOT NULL,
-  s_each_post_likes INTEGER NOT NULL,
-  c_each_post_likes INTEGER NOT NULL,
-  s_each_post_dislikes INTEGER NOT NULL,
-  g_each_post_dislikes INTEGER NOT NULL,
-  c_each_post_dislikes INTEGER NOT NULL
+ id_like SERIAL PRIMARY KEY,
+ post_id VARCHAR(800) NOT NULL,
+ username_id VARCHAR(800) NOT NULL REFERENCES users(user_id),
+ like_type INTEGER NOT NULL
 );
 
-DROP TABLE IF EXISTS stop_t CASCADE;
+DROP TABLE IF EXISTS sgc_t CASCADE;
 
-CREATE TABLE stop_t (
-posts SERIAL PRIMARY KEY,
-  stop_posts VARCHAR(800) NOT NULL,
-  username_post VARCHAR(800) NOT NULL REFERENCES users(user_id),
+CREATE TABLE sgc_t (
+id_post SERIAL PRIMARY KEY,
+  post_content VARCHAR(800) NOT NULL,
+  username_id VARCHAR(800) NOT NULL REFERENCES users(user_id),
+  post_type VARCHAR(800) NOT NULL
 );
 
-DROP TABLE IF EXISTS go_t CASCADE;
 
-CREATE TABLE go_t (
-  posts SERIAL PRIMARY KEY,
-    go_posts VARCHAR(800) NOT NULL,
-    username_post VARCHAR(800) NOT NULL REFERENCES users(user_id)
-);
-DROP TABLE IF EXISTS continue_t CASCADE;
-
-CREATE TABLE continue_t(
-  posts SERIAL PRIMARY KEY,
-    continue_posts VARCHAR(800) NOT NULL,
-    username_post VARCHAR(800) NOT NULL REFERENCES USERS(user_id)
-);
 COMMIT;
