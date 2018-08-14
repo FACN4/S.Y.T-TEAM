@@ -1,21 +1,45 @@
--- BEGIN;
---
--- DROP TABLE IF EXISTS users CASCADE;
---
--- CREATE TABLE users (
---   user_id SERIAL PRIMARY KEY,
---   git_username VARCHAR (255) NOT NULL,
---   git_profile_url VARCHAR (2083) NOT NULL,
---   git_photo_url VARCHAR (2083) NOT NULL,
---   -- elo_ranking INTEGER DEFAULT 1500
--- );
--- DROP TABLE IF EXISTS ratings CASCADE;
---
--- CREATE TABLE ratings (
---   rating_id SERIAL PRIMARY KEY,
---   winner_id INTEGER NOT NULL REFERENCES USERS(user_id),
---   winner_elo INTEGER NOT NULL,
---   loser_id INTEGER NOT NULL REFERENCES USERS(user_id),
---   loser_elo INTEGER NOT NULL
--- );
--- -- COMMIT;
+BEGIN;
+
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+  user_id SERIAL PRIMARY KEY,
+  -- username VARCHAR(255) NOT NULL,
+  user_password VARCHAR(255) NOT NULL
+);
+
+DROP TABLE IF EXISTS likes CASCADE;
+
+CREATE TABLE likes (
+  post_likes SERIAL PRIMARY KEY,
+  g_each_post_likes INTEGER NOT NULL,
+  s_each_post_likes INTEGER NOT NULL,
+  c_each_post_likes INTEGER NOT NULL,
+  s_each_post_dislikes INTEGER NOT NULL,
+  g_each_post_dislikes INTEGER NOT NULL,
+  c_each_post_dislikes INTEGER NOT NULL
+);
+
+DROP TABLE IF EXISTS stop_t CASCADE;
+
+CREATE TABLE stop_t (
+posts SERIAL PRIMARY KEY,
+  stop_posts VARCHAR(800) NOT NULL,
+  username_post VARCHAR(800) NOT NULL REFERENCES users(user_id),
+);
+
+DROP TABLE IF EXISTS go_t CASCADE;
+
+CREATE TABLE go_t (
+  posts SERIAL PRIMARY KEY,
+    go_posts VARCHAR(800) NOT NULL,
+    username_post VARCHAR(800) NOT NULL REFERENCES users(user_id)
+);
+DROP TABLE IF EXISTS continue_t CASCADE;
+
+CREATE TABLE continue_t(
+  posts SERIAL PRIMARY KEY,
+    continue_posts VARCHAR(800) NOT NULL,
+    username_post VARCHAR(800) NOT NULL REFERENCES USERS(user_id)
+);
+COMMIT;
