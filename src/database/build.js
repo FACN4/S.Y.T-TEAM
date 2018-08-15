@@ -1,33 +1,16 @@
-
+/* eslint-disable no-console */
 const fs = require('fs');
 const dbConnection = require('./dbconnection');
+const userData = require('./data.json');
 
+const addExampleDb = fs.readFileSync(`${__dirname}/build.sql`, 'utf-8');
 
-// const sgcT = fs.readFileSync(`${__dirname}/build.sql`, 'utf-8');
-//
-// const runDbBuild = (cb) => {
-//   dbConnection.query(makeEmptyTables, (error) => {
-//     if (error) {
-//       console.log('Building DB error', error);
-//       cb(error);
-//     } else {
-//       userData.forEach((person) => {
-//         if (person.avatar_url) {
-//           const SQLquery = 'INSERT INTO users (git_username,git_profile_url,git_photo_url) VALUES ($1,$2,$3)';
-//           dbConnection.query(SQLquery, [person.login, person.html_url, person.avatar_url],
-//             (err) => {
-//               if (err) {
-//                 cb(err);
-//               }
-//             });
-//         }
-//       });
-//       cb(null);
-//     }
-//   });
-// };
-//
-// if (process.argv[2] === 'run') {
-//   runDbBuild(console.log);
-// }
-// module.exports = runDbBuild;
+const dbExample = (data) => {
+  dbConnection.query(addExampleDb)=>{
+      userData.forEach((user) => {
+          dbConnection.query('INSERT INTO users (username,user_password) VALUES ($1,$2)', [user.username, user.user_password]
+};
+};
+};
+
+module.exports = dbExample;

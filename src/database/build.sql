@@ -26,6 +26,8 @@ id_post SERIAL PRIMARY KEY,
   username_id VARCHAR(800) NOT NULL REFERENCES users(user_id),
   post_type VARCHAR(800) NOT NULL
 );
+-- INSERT INTO users (username,user_password) VALUES ("Sol" ,"no11wayreally8");
+
 
 
 COMMIT;
