@@ -1,4 +1,5 @@
 const dbConnection = require('../database/dbconnection.js');
+const tables = require('../database/build.sql');
 
 const getGoPosts = (cb) => {
   dbConnection.query('SELECT * FROM postsgc', (err, res) => {
