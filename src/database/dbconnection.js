@@ -6,7 +6,7 @@ require('env2')('./config.env');
 
 let { DATABASE_URL } = process.env;
 if (process.env.NODE_ENV === 'test') {
-  DATABASE_URL = process.env.TEST_DB_URL;
+  DATABASE_URL = process.env.TEST_DB;
 }
 
 if (!DATABASE_URL) throw new Error('Enviroment variable DB_URL must be set');
@@ -25,4 +25,4 @@ const options = {
 
 options.ssl = (options.host !== 'localhost');
 
-// module.exports = new Pool(options);
+module.exports = new Pool(options);
