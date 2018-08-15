@@ -1,5 +1,5 @@
 const dbConnection = require('../database/dbconnection.js');
-const tables = require('../database/build.sql');
+const tables = require('../database/build.js');
 
 const getPostLikes = (id_postsgc,cb) => {
   dbConnection.query('SELECT * FROM likes', (err, res) => {

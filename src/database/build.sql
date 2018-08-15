@@ -15,7 +15,7 @@ CREATE TABLE likes (
  id_like SERIAL PRIMARY KEY,
  likes INTEGER NOT NULL,
  dislikes INTEGER NOT NULL,
- post_type VARCHAR(800) NOT NULL REFERENCES postsgc(post_go,post_continue,post_stop)
+ post_type INTEGER REFERENCES postsgc(post_go,post_continue,post_stop)
 );
 
 DROP TABLE IF EXISTS postsgc CASCADE;
