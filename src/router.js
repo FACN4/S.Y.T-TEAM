@@ -1,12 +1,14 @@
 const handlers = require('./handlers/handlers.js');
 
-const assetURLs = [
-  '/index.html',
-  '/signup.html',
-  '/signup.js',
-  '/dom.js',
+const publicURLs = [
+  '/index1.html',
+  '/signUp.html',
+  '/signUp.js',
+  '/index.js',
   '/style.css',
-  '/xhr.js'
+  '/xhr.js',
+  '/logIn.js',
+  '/logIn.html'
 ];
 
 /* Router fn to deal with 4 requests - the homepage, an asset (e.g. CSS file),
@@ -14,14 +16,10 @@ a client data request and an else which produces a 404 page. These requests call
 on functions in the handlers file to produce a response. */
 const router = (request, response) => {
   const { url } = request;
-  if (url === '/') {
-    handlers.homePageHandler(response);
-  } else if (assetURLs.includes(url)) {
-    handlers.signupHandler(url, response);
-  } else if (url.includes('/signup')) {
-    handlers.loginHandler(request, response);
+  if (url === '/' || publicURLs.includes(url)) {
+    handlers.publicHandler(request, response);
   } else {
-    handlers.notFoundHandler(response);
+    handlers.Handler404(request, response);
   }
 };
 
