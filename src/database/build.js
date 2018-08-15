@@ -12,4 +12,4 @@ dbConnection.query(addExampleDb, (error, data) => {
   }
 });
 
-// module.exports = dbExample;
+module.exports = addExampleDb;

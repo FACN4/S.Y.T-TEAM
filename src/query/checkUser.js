@@ -1,4 +1,4 @@
-const pool = require("./db_connection");
+const pool = require("../database/db_connection");
 
 const checkUser = (username, cb) => {
   pool.query(
