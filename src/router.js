@@ -17,12 +17,13 @@ a client data request and an else which produces a 404 page. These requests call
 on functions in the handlers file to produce a response. */
 const router = (request, response) => {
   const { url } = request;
+  console.log(url);
   if (url === '/' || publicURLs.includes(url)) {
-    handlers.publicHandler(request, response);
+    publicHandler(request, response);
   } else if (url.indexOf('ask') > -1) {
-    handlers.serverHandler(request, response);
-  } else {
-    handlers.Handler404(request, response);
+    //    handlers.serverHandler(request, response);
+    //  } else {
+    //  handlers.Handler404(request, response);
   }
 };
 
