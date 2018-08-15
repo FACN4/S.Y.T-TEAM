@@ -13,18 +13,19 @@ DROP TABLE IF EXISTS likes CASCADE;
 
 CREATE TABLE likes (
  id_like SERIAL PRIMARY KEY,
- post_id VARCHAR(800) NOT NULL,
- username_id INTEGER REFERENCES users(user_id),
- like_type INTEGER NOT NULL
+ likes INTEGER NOT NULL,
+ dislikes INTEGER NOT NULL,
+ post_type VARCHAR(800) NOT NULL REFERENCES postsgc(post_go,post_continue,post_stop)
 );
 
-DROP TABLE IF EXISTS sgc_t CASCADE;
+DROP TABLE IF EXISTS postsgc CASCADE;
 
-CREATE TABLE sgc_t (
-id_post SERIAL PRIMARY KEY,
-  post_content VARCHAR(800) NOT NULL,
-  username_id INTEGER REFERENCES users(user_id),
-  post_type VARCHAR(800) NOT NULL
+CREATE TABLE postsgc (
+id_postsgc SERIAL PRIMARY KEY,
+  post_go VARCHAR(800) NOT NULL ,
+  post_continue VARCHAR(800) NOT NULL,
+  post_stop VARCHAR(800) NOT NULL,
+  username_id INTEGER REFERENCES users(user_id)
 );
 
 INSERT INTO users (username,user_password) VALUES ('Sol' ,'no11wayreally8');
