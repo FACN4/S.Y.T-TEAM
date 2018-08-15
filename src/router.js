@@ -1,4 +1,5 @@
-const handlers = require('./handlers/handlers.js');
+const publicHandler = require('./handlers/publicHandler.js');
+const serverHandler = require('./handlers/serverHandler.js');
 
 const publicURLs = [
   '/index1.html',
@@ -18,6 +19,8 @@ const router = (request, response) => {
   const { url } = request;
   if (url === '/' || publicURLs.includes(url)) {
     handlers.publicHandler(request, response);
+  } else if (url.indexOf('ask') > -1) {
+    handlers.serverHandler(request, response);
   } else {
     handlers.Handler404(request, response);
   }
