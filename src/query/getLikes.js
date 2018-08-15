@@ -1,28 +1,28 @@
 const dbConnection = require('../database/dbconnection.js');
 const tables = require('../database/build.sql');
 
-const getPostLikes = (cb) => {
+const getPostLikes = (id_postsgc,cb) => {
   dbConnection.query('SELECT * FROM likes', (err, res) => {
     if (err) {
       cb(err);
       }
       if(post_type.likes===post_go){
-      console.log(res);
+      cb(null,rows.res);
       }
       if(post_type.dislikes===post_go){
-      console.log(res);
+      cb(null,rows.res);
       }
       else if(post_type.likes===post_stop){
-        console.log(res);
+      cb(null,rows.res);
       }
       if(post_type.dislikes===post_stop){
-        console.log(res);
+      cb(null,rows.res);
       }
       else if(post_type.likes===post_continue){
-        console.log(res);
+      cb(null,rows.res);
       }
       if(post_type.dislikes===post_continue){
-        console.log(res);
+      cb(null,rows.res);
       }
       }
     });

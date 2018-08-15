@@ -1,13 +1,13 @@
 const dbConnection = require('../database/dbconnection.js');
 const tables = require('../database/build.sql');
 
-const getGoPosts = (cb) => {
+const getGoPosts = (id_postsgc,cb) => {
   dbConnection.query('SELECT * FROM postsgc', (err, res) => {
     if (err) {
       cb(err);
     }
     if(post_go){
-      console.log(res);
+        cb(null,rows.res);
     }
   });
 };
