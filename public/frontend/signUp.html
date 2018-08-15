@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <title>Sign up</title>
 </head>
@@ -13,15 +13,21 @@
     <h1>Sign up</h1>
 
     <form class="signup__form" novalidate>
+<div>
       <label for="userName">User name:
         <input id="userName" type="text" required/>
       </label>
+</div>
+<div>
       <label for="password">Password:
         <input id="password" type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
       </label>
+</div>
+<div>
       <label for="confirmPassword">Confirm password:
         <input id="confirmPassword" type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" />
       </label>
+</div>
       <p class="error" aria-live="polite"></p>
       <button>Submit</button>
     </form>
