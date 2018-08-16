@@ -15,12 +15,12 @@ CREATE TABLE likes (
  id_like SERIAL PRIMARY KEY,
  likes INTEGER NOT NULL,
  dislikes INTEGER NOT NULL,
- post_type INTEGER REFERENCES postsgc(post_go,post_continue,post_stop)
+ post_type INTEGER REFERENCES sgcpost(post_go,post_continue,post_stop)
 );
 
-DROP TABLE IF EXISTS postsgc CASCADE;
+DROP TABLE IF EXISTS sgcpost CASCADE;
 
-CREATE TABLE postsgc (
+CREATE TABLE sgcpost (
 id_postsgc SERIAL PRIMARY KEY,
   post_go VARCHAR(800) NOT NULL ,
   post_continue VARCHAR(800) NOT NULL,
@@ -30,6 +30,7 @@ id_postsgc SERIAL PRIMARY KEY,
 
 INSERT INTO users (username,user_password) VALUES ('Sol' ,'no11wayreally8');
 INSERT INTO users (username,user_password) VALUES ('Sara' ,'no1454rdh5');
+INSERT INTO sgc_t (post_go,post_stop,post_continue) VALUES ('keep up' ,'keep uppp','keeeep upp!');
 
 
 COMMIT;

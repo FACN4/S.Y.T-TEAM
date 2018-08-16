@@ -7,6 +7,9 @@ form{
   margin-left: 33%;
   margin-right: 33%;
 }
+#size{
+resize : none;  
+}
 a{
   color: white;
   text-decoration: none;
